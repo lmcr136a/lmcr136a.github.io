@@ -41,11 +41,9 @@ html {
 
 #cv {
     margin: 0px;
-    display: flex;
+    /* display: flex; */
     font-size: 25px;
     font-family: monospace;
-    justify-content: center; /* 수평 중앙 */
-    align-items: center; /* 수직 중앙 */
 }
 
 .heading h1 {
