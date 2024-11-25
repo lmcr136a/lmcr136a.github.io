@@ -41,13 +41,12 @@ html {
 
 #cv h1 {
     width: 1034px;
+    height: 200px; /* 화면 전체 높이 */
     display: flex;
     font-size: 25px;
     font-family: monospace;
-    width: 100%;
     justify-content: center; /* 수평 중앙 */
     align-items: center; /* 수직 중앙 */
-    height: 100vh; /* 화면 전체 높이 */
 }
 
 .heading h1 {
