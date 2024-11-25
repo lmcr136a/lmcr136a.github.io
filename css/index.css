@@ -39,7 +39,7 @@ html {
     margin: 0 0 0 20px;
 }
 
-#cv {
+#cv h1 {
     width: 1034px;
     display: flex;
     font-size: 25px;
