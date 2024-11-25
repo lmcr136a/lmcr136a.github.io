@@ -39,6 +39,17 @@ html {
     margin: 0 0 0 20px;
 }
 
+#cv {
+    width: 1034px;
+    display: flex;
+    font-size: 25px;
+    font-family: monospace;
+    width: 100%;
+    justify-content: center; /* 수평 중앙 */
+    align-items: center; /* 수직 중앙 */
+    height: 100vh; /* 화면 전체 높이 */
+}
+
 .heading h1 {
     width: 1034px;
     display: flex;
