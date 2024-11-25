@@ -41,7 +41,7 @@ html {
 
 #cv {
     width: 1034px;
-    height: 100px; /* 화면 전체 높이 */
+    /* height: 100px;  */
     display: flex;
     font-size: 25px;
     font-family: monospace;
