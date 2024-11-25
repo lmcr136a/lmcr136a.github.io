@@ -122,9 +122,14 @@
                             <h5 class="card-title">Self-Supervised NeRF Image Selector (SNIS)</h5>
                               <a href="https://github.com/lmcr136a/AgriSim-virtual-NeRF-training" class="stretched-link hidden"></a>
                             <p class="project-card-text">
-                                In this project, we implement a pipeline that uses reinforcement learning to find the optimal image positions necessary for training the NeRF model. The pipeline begins with the AgriSim module, a Python library that generates a NeRF of a ShapeNet 3D object using the Unity Game Engine and Instant-NGP. It starts with a basic Unity environment, where a 3D mesh object is simulated within the Unity framework. AgriSim's unity_sampler captures images of the target object within the Unity environment and saves these images with transforms.json, which contains translation, rotation, and the physical characteristics of the camera.
-                                Using this dataset, the reinforcement learning agent within the AgriSim-RL module seeks to find the most effective positions of images for the training of the NeRF model. At each step, the agent predicts the camera position coordinates, and trains the NeRF model using images captured from these coordinates. After training, the agent's reward is assessed using validation metrics of the model, and the agent aims to increase the validation performance of the NeRF model.
-
+                                This research focuses on optimizing the selection of camera poses to improve the NeRF model’s 
+                                performance with a minimal number of images. A self-supervised learning-based NeRF Image Selector 
+                                was designed to select optimal camera positions that are most advantageous for training on a 
+                                target scene. The NeRF Image Selector significantly improved NeRF model training efficiency in 
+                                nearly all cases by developing a novel pseudo-label. This label functions similarly to a 
+                                reinforcement learning reward, enabling a self-supervised learning approach in NeRF model training. 
+                                Additionally, a new framework was introduced that integrates with the Unity environment to control 
+                                cameras and train NeRF models, establishing a new research methodology to advance NeRF studies.
                             </p>
                             <br>
                           </div>
