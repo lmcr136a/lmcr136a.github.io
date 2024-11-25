@@ -42,6 +42,7 @@ html {
 #cv {
     width: 1034px;
     /* height: 100px;  */
+    margin: 0px;
     display: flex;
     font-size: 25px;
     font-family: monospace;
