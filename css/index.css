@@ -40,7 +40,7 @@ html {
 }
 
 #cv {
-    margin: 0px;
+    /* margin: 0px; */
     display: flex;
     font-size: 25px;
     font-family: monospace;
