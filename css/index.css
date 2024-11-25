@@ -40,7 +40,12 @@ html {
 }
 
 #cv {
-    /* margin: 0px; */
+    width: 250px; 
+    border: 2px solid black;
+    justify-content: center;
+    align-items: center; 
+    font-family: monospace;
+    margin-left: 10px;
     display: flex;
     font-size: 25px;
     font-family: monospace;
