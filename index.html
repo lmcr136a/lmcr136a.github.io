@@ -1,499 +1,265 @@
-<!DOCTYPE html>
-
+ <!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Nahyeon Kim</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/index.css">
-
-    <script src="https://kit.fontawesome.com/8c9171bec9.js" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css" />
-    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css" />
-    <link rel="icon" href="/assets/Portfolio Icon.jfif">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evelyn — PhD Student, UCLA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
-
 <body>
-    <!-- GRADIANT EFFECT ON TOP -->
-<!--    <h1 id="main-heading" class="gradiant-effect"></h1>-->
-    <!-- MAIN DIVIDER WHICH CONTAINS ALL THE OTHER CATEGORY-->
-    <div id="main-box" style=" width: 1034px;">
-        <!-- ABOUT ME SECTION -->
-        <div class="d-flex justify-content-center container-xxl" id="about-me">
-            <div class="d-flex">
-                <div class="flex-shrink-1">
-                    <picture> 
-                        <img id="profile-pic" src="/assets/MyPhoto.jpg" alt="NahyeonKim.jpg" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"> 
-                    </picture> 
-                    <!-- <img src="assets/MyPhoto.jpg" alt="image"> -->
-                     
-                    <br><br><br>
-                    <div class="row">
-                        <div class="col-4 text-center"><a href="mailto:lmcr136a@g.ucla.edu"><i class="fa-regular fa-envelope fa-2xl" data-tippy-content="E-Mail"></i></a></div>
-                        <div class="col-4 text-center"><a href="https://www.linkedin.com/in/steamhyeon/"><i class="fa-brands fa-linkedin fa-2xl" data-tippy-content="LinkedIn"></i></a></div>
-                        <div class="col-4 text-center"><a href="https://github.com/lmcr136a?tab=repositories"><i class="fa-brands fa-github fa-2xl" data-tippy-content="GitHub"></i></a></div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <a href="assets/CV_Kim.pdf" target="_blank">
-                            <div class="card project-card mb-1" style=" width: 320px; height: 30px;
-                                                                        border: 2px solid black;
-                                                                        justify-content: center;
-                                                                        align-items: center; 
-                                                                        display: flex;">
-                                <h1 style="margin-top: 5px; font-size: 20px; font-family: monospace; font-weight: bold;">CURRICULUM VITAE</h1>
-                            </div>
-                        </a>
-                    </div>
-<!-- 
-                    <div class="row">
-                        <a href="assets/RS.pdf" target="_blank">
-                            <div class="card project-card mb-1" style=" width: 320px; height: 30px;
-                                                                        border: 2px solid black;
-                                                                        justify-content: center;
-                                                                        align-items: center; 
-                                                                        margin-top: 2px;
-                                                                        display: flex;">
-                                <h1 style="margin-top: 5px; font-size: 20px; font-family: monospace; font-weight: bold;">RESEARCH STATEMENT</h1>
-                            </div>
-                        </a>
-                    </div> -->
 
-                </div>
-                <div class="flex-grow-1 ms-5 name-heading">
-                    <!-- NAME OF THE PERSON -->
-                    <h1>(Evelyn) Nahyeon Kim</h1>
-                    <!-- ABOUT HIM -->
-                    <p style="text-align: justify">
-                        Hi &#128516;
-                        <br>
-                        <br>
-                        
-                        I am currently pursuing a PhD in Computer Science at <a href="https://www.ucla.edu/">UCLA</a>, where I work with Prof. M. Khalid Jawed and Prof. Wei Wang on <strong>Vision Language Action (VLA) models</strong> for autonomous navigation in agricultural environments.
-                        Before starting my PhD, I completed my Master's degree in Mechanical Engineering at UCLA in 2024, focusing on <strong>Neural Radiance Fields (NeRF)</strong> 
-                        under the guidance of <a href="https://samueli.ucla.edu/people/m-khalid-jawed/">Prof. M. Khalid Jawed</a> at the <a href="https://structures.computer/">Structures-Computer Interaction Lab</a>.
-                        I earned my Bachelor's degree in Mechanical Engineering from <a href="https://en.snu.ac.kr/index.html">Seoul National University</a> in 2023.
-                        <br>
-                        <br>
-                        I am passionate about advancing AI research by integrating knowledge from diverse fields to create innovative solutions. 
-                        My primary research interest lies in developing <strong>integrated AI systems</strong> that combine vision, language, and action, 
-                        particularly for real-world applications in robotics and autonomous systems.
-                        I am always open to discussions and collaborations. Please feel free to reach out if you would like to connect!
-                    </p>
+  <!-- ── NAV ─────────────────────────────────────── -->
+  <nav id="navbar">
+    <span class="nav-name">-</span>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Projects</a></li>
+    </ul>
+  </nav>
 
-                <strong>Research Experience Overview</strong>
-                    
-<table style="width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9em;">
-    <thead>
-        <tr style="border-bottom: 2px solid #333;">
-            <th style="padding: 4px 6px; text-align: left; width: 15%;">Year</th>
-            <th style="padding: 4px 6px; text-align: left; width: 30%;">Organization</th>
-            <th style="padding: 4px 6px; text-align: left; width: 25%;">Role</th>
-            <th style="padding: 4px 6px; text-align: left; width: 30%;">Research Focus</th>
-        </tr>
-    </thead>
-    <tbody>
-        
-        <tr style="border-bottom: 1px solid #ddd;">
-            <td style="padding: 4px 6px;">2021</td>
-            <td style="padding: 4px 6px;">SaigeResearch Inc.</td>
-            <td style="padding: 4px 6px;">Research Intern</td>
-            <td style="padding: 4px 6px;"><strong>Optical Character Recognition (OCR)</strong></td>
-        </tr>
-        <tr style="border-bottom: 1px solid #ddd;">
-            <td style="padding: 4px 6px;">2021-2022</td>
-            <td style="padding: 4px 6px;"><a href="https://www.kist.re.kr/eng/index.do">Korea Institute of Science and Technology (KIST)</a></td>
-            <td style="padding: 4px 6px;">Research Intern</td>
-            <td style="padding: 4px 6px;"><strong>Knowledge Distillation</strong>, <strong>Neural Network Inversion</strong></td>
-        </tr>
-        <tr style="border-bottom: 1px solid #ddd;">
-            <td style="padding: 4px 6px;">2023</td>
-            <td style="padding: 4px 6px;">VR Crew Inc.</td>
-            <td style="padding: 4px 6px;">Research Engineer</td>
-            <td style="padding: 4px 6px;"><strong>Visual Positioning System (VPS)</strong> for VR coordinate mapping</td>
-        </tr>
-        <tr style="border-bottom: 1px solid #ddd;">
-            <td style="padding: 4px 6px;">2023-2024</td>
-            <td style="padding: 4px 6px;"><a href="https://www.ucla.edu/">UCLA</a></td>
-            <td style="padding: 4px 6px;">M.S. Student</td>
-            <td style="padding: 4px 6px;"><strong>Neural Radiance Fields (NeRF)</strong></td>
-        </tr>
-        <tr style="border-bottom: 1px solid #ddd;">
-            <td style="padding: 4px 6px;">2024-2025</td>
-            <td style="padding: 4px 6px;"><a href="https://connecteve.com/">CONNECTEVE Inc.</a></td>
-            <td style="padding: 4px 6px;">Research Engineer</td>
-            <td style="padding: 4px 6px;"><strong>Diffusion Models</strong>, Analytical systems for medical applications</td>
-        </tr>
-        <tr style="border-bottom: 1px solid #ddd;">
-            <td style="padding: 4px 6px;">2025-Present</td>
-            <td style="padding: 4px 6px;"><a href="https://www.ucla.edu/">UCLA</a></td>
-            <td style="padding: 4px 6px;">Ph.D. Student</td>
-            <td style="padding: 4px 6px;"><strong>Vision-Language-Action (VLA)</strong> for autonomous driving</td>
-        </tr>
-    </tbody>
-</table>
-                </div>
-            </div>
-        </div>
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------------ -->
-        <div class="container-xxl heading" style=" width: 1034px;">
-            <h1>PUBLICATIONS & PATENTS</h1>
-        </div>
-
-        <div class="container-xxl" style="width: 1034px; margin-left:25px" id="projects">
-        <p style="font-size: 15px; font-family: monospace; font-weight: bold; color: black;">
-            <br>
-            [Submitted] Nahyeon Kim and Seyun Kim. “DiffusionMix: Adaptive Image Composition through Merging Two DDPM Denoising Processes.”, Pattern Recognition.
-            <br><br>
-            [Submitted] Nahyeon Kim and Suhyun Kim. ”KDO:Data-Free Re-training of Pruned Networks.” IEEE Access.
-            <br><br>
-            <a href="https://escholarship.org/uc/item/7387v0mt">[Published] Nahyeon Kim. ”Advancing Neural Radiance Fields through Self-Supervised NeRF Image Selector (SNIS).” UCLA Electronic Theses and Dissertations, 2024.</a>
-            <br><br>
-            <a href="assets/patent_registration_details.pdf">[Issued]  Kim, Nahyeon, 2023, Apparatus and method for performing visual localization effectively,
-                Korean Patent 1020230054544, filed April 26, 2023, and issued December 18, 2023.</a>
-            <br><br>
+  <!-- ── HERO / ABOUT ──────────────────────────────── -->
+  <section id="about" class="hero">
+    <div class="hero-inner">
+      <div class="hero-photo fade-in">
+        <img src="profile.jpg" alt="Profile photo" />
+      </div>
+      <div class="hero-text fade-in delay-1">
+        <p class="label">Ph.D. Student · UCLA</p>
+        <h1>Nahyeon Kim (Evelyn)<br /><span class="name-light"><!-- Your Last Name --></span></h1>
+        <p class="affiliation">
+          Department of Computer Science, UCLA<br />
+          Advised by Prof. M. Khalid Jawed &amp; Prof. Wei Wang
         </p>
+        <p class="bio">
+          I am a first-year Ph.D. student at UCLA, working on Robotics AI. My research focuses on high-intelligence autonomous navigation in large-scale agricultural environments, using SLAM, VLM, and Semantic Mapping.
+        </p>
+        <div class="hero-links">
+          <a href="cv.pdf" class="btn" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+            CV
+          </a>
+          <a href="https://www.linkedin.com/in/steamhyeon/" class="btn btn-outline" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="mailto:lmcr136a@g.ucla.edu" class="btn btn-outline">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+            Email
+          </a>
         </div>
-        
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------------ -->
+      </div>
+    </div>
+  </section>
 
-        <div class="container-xxl heading" style=" width: 1034px;">
-            <h1>PUBLIC PROJECTS</h1>
+  <!-- ── PROFESSIONAL EXPERIENCE ────────────────── -->
+  <section id="experience" class="section">
+    <div class="section-inner">
+      <h2 class="section-title fade-in">Professional Experience</h2>
+      <div class="divider fade-in"></div>
+
+      <!-- Item 1 -->
+      <div class="exp-item fade-in">
+        <div class="exp-image">
+          <img src="images/prof_exp1.png" alt="Experience 1" />
         </div>
-        
-        <br>
-        <!-- PROJECT THAT HE OWNS -->
-        <div class="container-xxl" style="width: 1034px;" id="projects">
-            <div class="row row-cols-1 g-4">
-
-                <div class="col">
-                    <div class="card project-card mb-1">
-                      <div class="row g-0">
-                        <div class="col-5">
-                            <img src="assets/Asim.png" class="img-fluid">
-                        </div>
-                        <div class="col-7">
-                          <div class="card-body">
-                            <h5 class="card-title">Self-Supervised NeRF Image Selector (SNIS)</h5>
-                              <a href="https://github.com/lmcr136a/AgriSim-virtual-NeRF-training" class="stretched-link hidden"></a>
-                            <p class="project-card-text">
-                                This research focuses on optimizing the selection of camera poses to improve the NeRF model’s 
-                                performance with a minimal number of images. A self-supervised learning-based NeRF Image Selector 
-                                was designed to select optimal camera positions that are most advantageous for training on a 
-                                target scene. The NeRF Image Selector significantly improved NeRF model training efficiency in 
-                                nearly all cases by developing a novel pseudo-label. This label functions similarly to a 
-                                reinforcement learning reward, enabling a self-supervised learning approach in NeRF model training. 
-                                Additionally, a new framework was introduced that integrates with the Unity environment to control 
-                                cameras and train NeRF models, establishing a new research methodology to advance NeRF studies.
-                            </p>
-                            <br>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card project-card mb-1">
-                      <div class="row g-0">
-                        <div class="col-5">
-                            <img src="assets/KDO.png" class="img-fluid">
-                        </div>
-                        <div class="col-7">
-                          <div class="card-body">
-                            <h5 class="card-title">Data-Free Retraining of Pruned Networks</h5>
-                              <a href="https://github.com/lmcr136a/mod" class="stretched-link hidden"></a>
-                            <p class="project-card-text">
-                                Owing to concerns about privacy and licensing, there is an increasing trend of releasing large models without providing access to the training data. 
-                                This makes network pruning less efficient since retraining after pruning necessitates training data. 
-                                To work around the absence of the original training data, data-free pruning resorts to network inversion data generated from the model. 
-                                However, since the distribution of this synthetic data differs significantly from the original, fine-tuning with synthetic data leads to limited performance improvement or even a decrease in some cases. 
-                                To overcome this problem, we propose KD-only (KDO), a knowledge distillation method with only Kullback-Leibler divergence loss, as a better alternative to fine-tuning. 
-                                The key intuition is that we do not trust the fidelity of the synthetic data; we use these data as the input points at which the pruned model is trained to follow the behavior of the original model. 
-                                Our experiments with data-free pruning of various models demonstrate that KDO consistently outperforms fine-tuning. 
-                                The effectiveness of our method remains robust even with a limited number of images or lower image quality,  thereby enhancing the applicability of data-free pruning. 
-                            </p>
-                            <br>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card project-card mb-1">
-                      <div class="row g-0">
-                        <div class="col-5">
-                            <img src="assets/comvi.png" class="img-fluid">
-                        </div>
-                        <div class="col-7">
-                          <div class="card-body">
-                            <h5 class="card-title">Comparative Analysis: Traditional Computer Vision and Deep Learning</h5>
-                              <a href="https://github.com/lmcr136a/comvi" class="stretched-link hidden"></a>
-                            <p class="project-card-text">
-                                The advent of deep learning has yielded remarkable results across various computer vision tasks. In a bid to enhance performance, several traditional computer vision techniques have been integrated into deep learning frameworks. This repository presents a comparative study examining the performance of deep neural networks when augmented with traditional computer vision algorithms: Warping, SIFT, Edge Detection, and Gabor Filters.
-                                We utilized ResNet18 and modified the first convolutional layer to adjust the number of input image channels. Our experimentation involved CIFAR10, CIFAR100, as well as high-resolution datasets such as the Oxford 102 Flower Dataset and the Large Scale Fish Dataset, aiming to enhance the performance and impact of computer vision tasks.
-
-                            </p>
-                            <br>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card project-card mb-1">
-                      <div class="row g-0">
-                        <div class="col-5">
-                            <img src="assets/opengl.png" class="img-fluid">
-                        </div>
-                        <div class="col-7">
-                          <div class="card-body">
-                            <h5 class="card-title">Spline Visualization and Scene Rendering with OpenGL</h5>
-                              <a href="https://github.com/lmcr136a/Graphics_OpenGL?tab=readme-ov-file" class="stretched-link hidden"></a>
-                            <p class="project-card-text">
-                                This is an OpenGL project that includes creating scenes including Implicit Surfaces and Polygonal Objects, allowing dynamic rendering and interaction with the user. Users can manipulate the camera and change scenes using mouse and keyboard controls within the visualization window. The project extends to ray tracing scenes containing objects with various materials represented by the Phong illumination model.
-
-To create polygonal objects, B-Spline and Catmull-Rom spline methods are used with coordinates of control points, which are parsed from the data file.
-It utilizes a total of 4 light sources and employs recursive reflection to represent light reflection.
-                            </p>
-                            <br>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-
-            </div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <h3>Ph.D. Student</h3>
+            <span class="exp-date">Sep 2025 – Present</span>
+          </div>
+          <p class="exp-place">SCI Lab / UCLA CS &amp; MAE</p>
+          <p class="exp-desc">
+            Autonomous System with mobile robot in large-scale agricultural environments.
+          </p>
         </div>
+      </div>
 
-        <br>
-        <br>
-
-        <div class="container-xxl heading" style=" width: 1034px;">
-            <h1>EXPERIENCE & EDUCATION</h1>
+      <!-- Item 2 -->
+      <div class="exp-item fade-in">
+        <div class="exp-image">
+          <img src="images/prof_exp2.png" alt="Experience 2" />
         </div>
-        <br>
-        <div class="container-xxl" style="width: 1034px;">
-            <div class="row row-cols-1 g-4">
-                <div class="col">
-                    <div class="card experience-card mb-1">
-                      <div class="row g-0">
-                        <div class="col-5">
-                            <div class="col d-flex align-items-center justify-content-center text-center" style="align-items: center; height: 200px">
-                                <a href="https://structures.computer/"><img src="assets/sci_lab.png" class="img-fluid" style="width: 75%"></a>
-                            </div>
-                        </div>
-                        <div class="col-7">
-                          <div class="card-body">
-                            <h5 class="card-title">Ph.D. Student</h5>
-                              <p class="card-text"><small class="text-muted">Structures-Computer Interaction Lab, UCLA &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-                                Since Sep 2025</small></p>
-                            <p class="card-text">Supervised by <a href="https://samueli.ucla.edu/people/m-khalid-jawed/">Prof. M. Khalid Jawed</a> and <a href="https://web.cs.ucla.edu/~weiwang/">Prof. Wei Wang</a>, 
-                                my research focuses on Vision-Language-Action (VLA) Model for autonomous driving in farmland.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-
-                    <div class="card experience-card mb-1">
-                      <div class="row g-0">
-                        <div class="col-5">
-                            <div class="col d-flex align-items-center justify-content-center text-center" style="align-items: center; height: 200px">
-                                <a href="https://connecteve.com/"><img src="assets/connecteve.jpg" class="img-fluid" style="width: 75%"></a>
-                            </div>
-                        </div>
-                        <div class="col-7">
-                          <div class="card-body">
-                            <h5 class="card-title">Research Engineer</h5>
-                              <p class="card-text"><small class="text-muted">CONNECTEVE.Inc &nbsp; &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-                                Aug 2024 - Sep 2025</small></p>
-                            <p class="card-text">Supervised by <a href="https://snucm.elsevierpure.com/en/persons/y-ro">Prof. Duhyun Ro</a>, 
-I worked on diffusion models for medical treatment applications and developed X-ray image analysis systems, including segmentation and keypoint detection algorithms, using state-of-the-art medical AI frameworks.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card experience-card mb-1">
-                      <div class="row g-0">
-                        <div class="col-5">
-                            <div class="col d-flex align-items-center justify-content-center text-center" style="align-items: center; height: 200px">
-                                <a href="https://structures.computer/"><img src="assets/sci_lab.png" class="img-fluid" style="width: 75%"></a>
-                            </div>
-                        </div>
-                        <div class="col-7">
-                          <div class="card-body">
-                            <h5 class="card-title">M.S. Student</h5>
-                              <p class="card-text"><small class="text-muted">Structures-Computer Interaction Lab, UCLA &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-                                Sep 2023 - Jun 2024</small></p>
-                            <p class="card-text">Supervised by <a href="https://samueli.ucla.edu/people/m-khalid-jawed/">Prof. M. Khalid Jawed</a>, 
-                                my research focuses on Neural Radiance Fields (NeRF) and self-supervised learning.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card experience-card mb-1">
-                      <div class="row g-0">
-                        <div class="col-5">
-                            <div class="col d-flex align-items-center justify-content-center text-center" style="align-items: center; height: 224px">
-                                <a href="https://www.linkedin.com/company/vrcrewinc/?originalSubdomain=kr"><img src="assets/vrcrew_logo.jpg" class="img-fluid" style="width: 60%"></a>
-                            </div>
-                        </div>
-                        <div class="col-7">
-                          <div class="card-body">
-                            <h5 class="card-title">Research Engineer</h5>
-                            <p class="card-text"><small class="text-muted">VR Crew Inc. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-                              Jan 2023 - Aug 2023</small></p>
-                              Developed a framework at the core of the company's Vision Positioning System, integrating point cloud analysis, computer vision deep learning, and epipolar geometry. 
-                              Led research focused on Keypoint Extractor, PnP, PnL, Point Matching, and Global Descriptor. 
-                              <p class="card-text">
-
-                              </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card experience-card mb-1">
-                      <div class="row g-0">
-                        <div class="col-5">
-                            <div class="col d-flex align-items-center justify-content-center text-center" style="align-items: center; height: 224px">
-                                <a href="https://www.kist.re.kr/eng/index.do"><img src="assets/KIST_Logo.jpg" class="img-fluid" style="width: 60%"></a>
-                            </div>
-                        </div>
-                        <div class="col-7">
-                          <div class="card-body">
-                            <h5 class="card-title">AI Research Internship</h5>
-                            <p class="card-text"><small class="text-muted">Korea Institute of Science and Technology (KIST) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-                              Oct 2021 ~ Aug 2022</small></p>
-                              <p class="card-text">Supervised by <a href="https://scholar.google.com/citations?user=E6emHhkAAAAJ&hl=en">Prof. Suhyun Kim</a>, 
-                                In KDST (KIST Data Science Team), I researched combining Knowledge Distillation and Network Inversion for Network Pruning.
-                              </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-
-
-                <div class="col">
-                    <div class="card experience-card mb-1">
-                      <div class="row g-0">
-                        <div class="col-5">
-                            <div class="col d-flex align-items-center justify-content-center text-center" style="align-items: center; height: 224px">
-                                <a href="https://saige.ai/"><img src="assets/saige_research_logo.jpeg" class="img-fluid" style="width: 60%"></a>
-                            </div>
-                        </div>
-                        <div class="col-7">
-                          <div class="card-body">
-                            <h5 class="card-title">AI Research Internship</h5>
-                            <p class="card-text"><small class="text-muted">Saige Research Inc. &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-                                Feb 2021 - Aug 2021</small></p>
-                              <p class="card-text">Supervised by <a href="https://scholar.google.com/citations?user=u-h3PJIAAAAJ&hl=en">Prof. Frank Chongwoo Park</a>, 
-                                Engaged in pattern recognition and Optical Character Recognition (OCR) research and 
-                                customized various supervised OCR models with multifaceted experiments. 
-                              </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-
-
-                <div class="col">
-                    <div class="card experience-card mb-1">
-                      <div class="row g-0">
-                        <div class="col-5">
-                            <div class="col d-flex align-items-center justify-content-center text-center" style="align-items: center; height: 224px">
-                                <a href="https://www.linkedin.com/company/psx-seoul/?originalSubdomain=kr"><img src="assets/psx_logo.jpg" class="img-fluid" style="width: 60%"></a>
-                            </div>
-                        </div>
-                        <div class="col-7">
-                          <div class="card-body">
-                            <h5 class="card-title">Software Engineer Internship</h5>
-                            <p class="card-text"><small class="text-muted">PSX Inc. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-                                Aug 2020 - Feb 2021</small></p>
-                              <p class="card-text">
-                                Developed services for trading unlisted stocks, including web development using Django and hybrid app development with React-Native.
-                              </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-                
-                <div class="col">
-                    <div class="card experience-card mb-1">
-                      <div class="row g-0">
-                        <div class="col-5">
-                            <div class="col d-flex align-items-center justify-content-center text-center" style="align-items: center; height: 224px">
-                                <a href="https://en.snu.ac.kr/"><img src="assets/snu_logo.png" class="img-fluid" style="width: 60%"></a>
-                            </div>
-                        </div>
-                        <div class="col-7">
-                          <div class="card-body">
-                            <h5 class="card-title">B.S. Student</h5>
-                            <p class="card-text"><small class="text-muted">Seoul National Univeisity &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-                                Mar 2018 - Feb 2023</small></p>
-                              <p class="card-text">
-                                Undergraduate Studies with a special focus on programming, simulation and mathematics.
-                              </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-
-
-            </div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <h3>Research Engineer</h3>
+            <span class="exp-date">Aug 2024 - Aug 2025</span>
+          </div>
+          <p class="exp-place">CONNECTIVE Inc.</p>
+          <p class="exp-desc">
+            X-ray image analysis
+          </p>
         </div>
-        <br>
-        <br>
-        <br>
-        <h1 class="gradiant-effect" id="connect"> GET IN TOUCH </h1>
-        <br>
-        <br>
-        <div class="row">
-    <div class="col-3"></div>
-     <div class="col-2 text-center"><a href="mailto:lmcr136a@g.ucla.edu"><i class="fa-regular fa-envelope fa-2xl" data-tippy-content="E-Mail"></i></a></div>
-     <div class="col-2 text-center"><a href="https://www.linkedin.com/in/steamhyeon/"><i class="fa-brands fa-linkedin fa-2xl" data-tippy-content="LinkedIn"></i></a></div>
-    <div class="col-2 text-center"><a href="https://github.com/lmcr136a"><i class="fa-brands fa-github fa-2xl" data-tippy-content="GitHub"></i></a></div>
-    <div class="col-3"></div>
-</div>
-        <br><br>
-        <br><br>
+      </div>
 
-        <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
-        <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
-
-        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-        <div class="elfsight-app-4fd6d63f-c493-4a30-8558-af66a359e9ef" align="center"></div>
-
-        <script>
-            tippy('[data-tippy-content]', {
-                arrow: false,
-                inertia: true,
-                animation: 'scale',
-                theme: 'gradiant',
-                placement: 'bottom',
-            });
-        </script>
+      <!-- Item 3 -->
+      <div class="exp-item fade-in">
+        <div class="exp-image">
+          <img src="images/prof_exp3.png" alt="Experience 3" />
+        </div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <h3>M.S. Student</h3>
+            <span class="exp-date">Sep 2023 - Jun 2024</span>
+          </div>
+          <p class="exp-place">SCI Lab / UCLA MAE</p>
+          <p class="exp-desc">
+            NeRF
+          </p>
+        </div>
+      </div>
 
     </div>
-</body>
+  </section>
 
+  <!-- ── EDUCATION ──────────────────────────────── -->
+  <section id="education" class="section section-alt">
+    <div class="section-inner">
+      <h2 class="section-title fade-in">Education</h2>
+      <div class="divider fade-in"></div>
+
+      <!-- UCLA -->
+      <div class="edu-item fade-in">
+        <div class="edu-logo">
+          <img src="images/ucla-logo.png" alt="UCLA" />
+        </div>
+        <div class="edu-content">
+          <div class="edu-header">
+            <h3>University of California, Los Angeles</h3>
+            <a href="https://www.ucla.edu" class="school-link" target="_blank" rel="noopener">
+              ucla.edu ↗
+            </a>
+          </div>
+          <p class="edu-degree">Ph.D. in Computer Science</p>
+          <p class="edu-details">
+            Advisors: Prof. M. Khalid Jawed &amp; Prof. Wei Wang<br />
+            Research Area: Robotics, Computer Vision, VLA Models
+          </p>
+          <span class="edu-date">2025 – Present</span>
+        </div>
+      </div>
+
+      <!-- UCLA MS -->
+      <div class="edu-item fade-in">
+        <div class="edu-logo">
+          <img src="images/ucla-logo.png" alt="UCLA" />
+        </div>
+        <div class="edu-content">
+          <div class="edu-header">
+            <h3>University of California, Los Angeles</h3>
+            <a href="https://www.ucla.edu" class="school-link" target="_blank" rel="noopener">
+              ucla.edu ↗
+            </a>
+          </div>
+          <p class="edu-degree">M.S. in Mechanical Engineering </p>
+          <p class="edu-details">
+            Advisors: Prof. M. Khalid Jawed <br />
+            Research Area: Computer Vision, NeRF
+          </p>
+          <span class="edu-date">2023 – 2024</span>
+        </div>
+      </div>
+
+      <!-- SNU -->
+      <div class="edu-item fade-in">
+        <div class="edu-logo">
+          <img src="images/snu-logo.png" alt="Seoul National University" />
+        </div>
+        <div class="edu-content">
+          <div class="edu-header">
+            <h3>Seoul National University</h3>
+            <a href="https://www.snu.ac.kr" class="school-link" target="_blank" rel="noopener">
+              snu.ac.kr ↗
+            </a>
+          </div>
+          <p class="edu-degree">B.S. in Mechanical Engineering</p>
+          <p class="edu-details">
+            <!-- Additional details, honors, relevant coursework, etc. -->
+          </p>
+          <span class="edu-date">2018 - 2023</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ───────────────────────────────── -->
+  <section id="projects" class="section">
+    <div class="section-inner">
+      <h2 class="section-title fade-in">Projects</h2>
+      <div class="divider fade-in"></div>
+
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <div class="project-card fade-in">
+          <div class="project-top">
+            <span class="project-tag">Robotics · Vision</span>
+            <h3>AgriSC Benchmark</h3>
+            <p>
+              A semantic consistency benchmark for evaluating Vision-Language Models on agricultural 
+              crop-row environments. Compares CLIP, OpenCLIP, DINOv2, EVA-CLIP, and SigLIP across 
+              CSC, SSC, and TSC metrics with UMAP visualizations and LaTeX output.
+            </p>
+          </div>
+          <div class="project-footer">
+            <a href="projects/agrisc.zip" class="btn-download" download>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download .zip
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card fade-in delay-1">
+          <div class="project-top">
+            <span class="project-tag">SLAM · Mapping</span>
+            <h3>Agricultural SLAM Pipeline</h3>
+            <p>
+              End-to-end LiDAR-inertial SLAM pipeline using GLIM with GPS integration for large-scale 
+              outdoor farm mapping. Generates 2D occupancy grids with obstacle detection from point 
+              clouds using local height comparison and morphological operations.
+            </p>
+          </div>
+          <div class="project-footer">
+            <a href="projects/slam-pipeline.zip" class="btn-download" download>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download .zip
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3 — Add more as needed -->
+        <div class="project-card fade-in delay-2">
+          <div class="project-top">
+            <span class="project-tag"><!-- Tag --></span>
+            <h3><!-- Project Title --></h3>
+            <p>
+              <!-- Project description. What problem does it solve? What technologies/methods 
+              did you use? What were the key results or contributions? -->
+            </p>
+          </div>
+          <div class="project-footer">
+            <a href="projects/project3.zip" class="btn-download" download>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download .zip
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────── -->
+  <footer>
+    <p>Evelyn · UCLA Ph.D. Student · <a href="mailto:your@email.com">your@email.com</a></p>
+    <p class="footer-copy">© <span id="year"></span> All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
