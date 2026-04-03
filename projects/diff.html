@@ -271,18 +271,18 @@
             In DiffusionMix, two Denoising Diffusion Probabilistic Models (DDPMs) are used, one of which is trained with a 4-channel input (RGB + mask). The object diffusion model generates an object image along with its corresponding segmentation mask within a given bounding box, while the background diffusion model synthesizes the rest of the scene. The outputs from the two models are progressively merged during the denoising process, allowing interaction between the object and background and resulting in a naturally blended composition.  
             </p>
         </div>
-      </div>
       
       <br><br>
 
       <div class="proj-figure fade-in">
         <div class="proj-figure-img">
-          <img src="../images/projects/diff_mvtec.png" alt="Result figure 1"
+          <img src="../images/projects/diff_mvtec.png" alt="Result figure 2"
                onerror="this.parentElement.style.cssText='width:320px;height:180px;background:var(--accent-pale);display:flex;align-items:center;justify-content:center;'; this.parentElement.innerHTML='<span style=\'font-size:13px;color:var(--ink-light)\'>Image placeholder</span>'" />
         </div>
             <p class="proj-figure-caption">
             Visual results for the composition of anomaly (object diffusion) and normal image (background diffusion) on MVTec Dataset. During denoising, the object and background influence each other, gradually adapting to reflect mutual changes. For example, in the Hazelnut dataset, anomalies blend into normal hazelnut images while the surrounding background adjusts accordingly. Notably, in crack anomalies, even when the anomaly deviates from the hazelnut’s natural round shape, the hazelnut structure wraps around it, producing realistic results. Similarly, in the Carpet dataset, woven patterns seamlessly connect between the anomaly and the background, demonstrating organic integration. This behavior is enabled by the resampling process, where anomalies and backgrounds are generated interactively, allowing for more coherent and natural compositions.
             </p>
+        </div>
         </div>
       </div>
 
