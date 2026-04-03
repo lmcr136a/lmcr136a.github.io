@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriSC Benchmark — Evelyn N. Kim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '\\(', right: '\\)', display: false}
+      ]
+    });"></script>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .proj-back {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: rgba(248, 247, 244, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      padding: 0 clamp(24px, 6vw, 80px);
+      z-index: 100;
+    }
+    .proj-back a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      transition: color .2s;
+    }
+    .proj-back a:hover { color: var(--accent); text-decoration: none; }
+
+    .proj-hero {
+      padding: calc(var(--nav-h) + 72px) clamp(24px, 8vw, 120px) 64px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .proj-hero .project-tag { margin-bottom: 20px; }
+    .proj-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 28px;
+    }
+    .proj-desc {
+      font-size: 16px;
+      color: var(--ink-soft);
+      line-height: 1.85;
+      margin-bottom: 28px;
+    }
+    .proj-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background .2s;
+    }
+    .proj-link:hover { background: var(--accent-pale); text-decoration: none; }
+
+    .proj-section {
+      padding: 64px clamp(24px, 8vw, 120px);
+    }
+    .proj-section:nth-child(odd) { background: var(--bg-alt); }
+    .proj-section-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .proj-section-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .proj-section-divider {
+      width: 36px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin-bottom: 40px;
+    }
+
+    /* ── Row: image + text ── */
+    .proj-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 36px;
+    }
+
+    /* Max height 340px — shrinks to image's natural height if smaller */
+    .proj-img {
+      max-height: 400px;
+      width: auto;
+      flex-shrink: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      display: flex;
+    }
+    .proj-img img {
+      max-height: 400px;
+      height: auto;
+      width: auto;
+      display: block;
+    }
+
+    /* Text beside image (default: side by side) */
+    .proj-texts {
+      flex: 1;
+      min-width: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-self: center;
+    }
+
+    /* Stacked: image wide → texts go below, full width */
+    .proj-row.stacked {
+      flex-direction: column;
+    }
+    .proj-row.stacked .proj-img {
+      width: 100%;
+      max-height: 400px;
+      height: auto;
+    }
+    .proj-row.stacked .proj-img img {
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: contain;
+    }
+    .proj-row.stacked .proj-texts {
+      width: 100%;
+    }
+
+    /* ── Full-width text block (no image) ── */
+    .proj-text-full {
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      line-height: 1.85;
+    }
+    .proj-text-full h2 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--ink);
+      margin: 0 0 10px;
+    }
+    .proj-text-full h3 {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      margin: 0 0 6px;
+    }
+    .proj-text-full p { margin: 0 0 10px; }
+    .proj-text-full p:last-child { margin-bottom: 0; }
+    .proj-text-full div + div { margin-top: 1.2rem; }
+
+    /* ── Figure: centered image + full-width caption ── */
+    .proj-figure {
+      margin-bottom: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .proj-figure:last-child { margin-bottom: 0; }
+    .proj-figure-img {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      width: fit-content;
+      max-width: 100%;
+      line-height: 0;
+    }
+    .proj-figure-img img {
+      display: block;
+      max-height: 280px;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+    }
+    .proj-figure-caption {
+      width: 100%;
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      border-left: 2px solid var(--accent);
+      padding-left: 14px;
+    }
+    .proj-figure-caption strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      opacity: .3;
+      background: var(--accent-pale);
+      min-width: 200px;
+    }
+
+    @media (max-width: 640px) {
+      .proj-row, .proj-row.stacked { flex-direction: column; }
+      .proj-img, .proj-row.stacked .proj-img { width: 100% !important; max-height: 400px !important; height: auto !important; }
+      .proj-img img, .proj-row.stacked .proj-img img { width: 100% !important; height: auto !important; max-height: 400px !important; object-fit: contain; }
+      .proj-texts { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="proj-back">
+    <a href="../index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+      Back
+    </a>
+  </div>
+
+  <!-- ── HERO ── -->
+  <div class="proj-hero fade-in">
+    <span class="project-tag">Diffusion Models · Vision</span>
+    <h1 class="proj-title">Adaptive Image Composition of two Diffusion Models</h1>
+    <p class="proj-desc">
+        An adaptive image composition framework designed to address data scarcity in medical X-ray datasets, particularly for cases involving implants where labeled data is limited. The approach originates from a practical need in medical imaging applications, where implant-containing X-rays are significantly underrepresented compared to normal scans. To tackle this imbalance, diffusion models are leveraged to generate realistic composite images by synthesizing implant structures within existing anatomical contexts.
+    </p>
+    <p class="proj-desc">
+        The framework, DiffusionMix, combines two Denoising Diffusion Probabilistic Models (DDPMs), with one specialized for background generation and the other for object, such as implant, generation along with corresponding segmentation masks, enabling controlled and realistic image composition. By jointly denoising and iteratively merging outputs from both models with a resampling mechanism, the method allows mutual interaction between object and background during generation, producing naturally blended results. This design supports efficient and flexible dataset generation for downstream tasks such as detection, segmentation, and anomaly analysis in medical imaging.    
+    </p>
+
+    <a href="../pdfs/DiffusionMix.pdf" class="proj-link" download>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Manuscript Download
+    </a>
+  </div>
+
+  <!-- ── SECTION: Result Summary ── -->
+  <div class="proj-section">
+    <div class="proj-section-inner">
+      <h2 class="proj-section-title fade-in">Visualization Results</h2>
+      <div class="proj-section-divider fade-in"></div>
+
+      <div class="proj-figure fade-in">
+        <div class="proj-figure-img">
+          <img src="../images/projects/diff_thumb.png" alt="Result figure 1"
+               onerror="this.parentElement.style.cssText='width:320px;height:180px;background:var(--accent-pale);display:flex;align-items:center;justify-content:center;'; this.parentElement.innerHTML='<span style=\'font-size:13px;color:var(--ink-light)\'>Image placeholder</span>'" />
+        </div>
+            <p class="proj-figure-caption">
+            In DiffusionMix, two Denoising Diffusion Probabilistic Models (DDPMs) are used, one of which is trained with a 4-channel input (RGB + mask). The object diffusion model generates an object image along with its corresponding segmentation mask within a given bounding box, while the background diffusion model synthesizes the rest of the scene. The outputs from the two models are progressively merged during the denoising process, allowing interaction between the object and background and resulting in a naturally blended composition.  
+            </p>
+        </div>
+      </div>
+      
+      <br><br>
+
+      <div class="proj-figure fade-in">
+        <div class="proj-figure-img">
+          <img src="../images/projects/diff_mvtec.png" alt="Result figure 1"
+               onerror="this.parentElement.style.cssText='width:320px;height:180px;background:var(--accent-pale);display:flex;align-items:center;justify-content:center;'; this.parentElement.innerHTML='<span style=\'font-size:13px;color:var(--ink-light)\'>Image placeholder</span>'" />
+        </div>
+            <p class="proj-figure-caption">
+            Visual results for the composition of anomaly (object diffusion) and normal image (background diffusion) on MVTec Dataset. During denoising, the object and background influence each other, gradually adapting to reflect mutual changes. For example, in the Hazelnut dataset, anomalies blend into normal hazelnut images while the surrounding background adjusts accordingly. Notably, in crack anomalies, even when the anomaly deviates from the hazelnut’s natural round shape, the hazelnut structure wraps around it, producing realistic results. Similarly, in the Carpet dataset, woven patterns seamlessly connect between the anomaly and the background, demonstrating organic integration. This behavior is enabled by the resampling process, where anomalies and backgrounds are generated interactively, allowing for more coherent and natural compositions.
+            </p>
+        </div>
+      </div>
+
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <p>Evelyn · UCLA Ph.D. Student · <a href="mailto:lmcr136a@g.ucla.edu">lmcr136a@g.ucla.edu</a></p>
+    <p class="footer-copy">© <span id="year"></span> All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    fadeEls.forEach(el => observer.observe(el));
+
+    function applyLayout(imgEl, rowEl) {
+      const imgWidth = imgEl.getBoundingClientRect().width;
+      const vw = window.innerWidth;
+      rowEl.classList.toggle('stacked', imgWidth >= vw * 0.5);
+    }
+
+    const pairs = [];
+
+    pairs.forEach(({ img, row }) => {
+      const imgTag = img.querySelector('img');
+      if (!imgTag) return;
+      if (imgTag.complete) applyLayout(img, row);
+      else imgTag.addEventListener('load', () => applyLayout(img, row));
+    });
+
+    window.addEventListener('resize', () => {
+      pairs.forEach(({ img, row }) => applyLayout(img, row));
+    });
+  </script>
+</body>
+</html>

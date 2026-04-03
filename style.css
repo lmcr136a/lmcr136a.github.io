@@ -12,8 +12,8 @@
   --border:     #DDD9D2;
   --white:      #FFFFFF;
 
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body:    'DM Sans', system-ui, sans-serif;
+  --font-display: 'Barlow', system-ui, sans-serif;
+  --font-body:    'Barlow', system-ui, sans-serif;
 
   --r: 12px;
   --nav-h: 60px;
@@ -220,22 +220,24 @@ h1 {
 }
 .exp-item:last-child { border-bottom: none; }
 
+/* Logo container — longest side fills the box, letter-boxed */
 .exp-image {
   width: 160px;
   height: 120px;
   border-radius: 8px;
   overflow: hidden;
-  background: var(--bg-alt);
+  background: var(--white);
   border: 1px solid var(--border);
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 16px;
 }
 .exp-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;   /* longest side fits, no cropping */
 }
 
 .exp-header {
@@ -345,23 +347,67 @@ h1 {
 /* ── PROJECTS GRID ──────────────────────────────── */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 24px;
 }
 
+/* Clickable card — the whole card is a link */
 .project-card {
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--r);
-  padding: 28px 28px 20px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  transition: transform .25s ease, box-shadow .25s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,.09);
+  border-color: var(--accent);
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Thumbnail image at the top of each card */
+.project-thumb {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: var(--bg-alt);
+  flex-shrink: 0;
+}
+.project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s ease;
+}
+.project-card:hover .project-thumb img {
+  transform: scale(1.04);
+}
+
+/* Placeholder shown when no image supplied */
+.project-thumb-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-pale);
+  color: var(--accent);
+  font-size: 32px;
+  opacity: .5;
+}
+
+.project-body {
+  padding: 24px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .project-top { flex: 1; }
@@ -376,14 +422,15 @@ h1 {
   background: var(--accent-pale);
   padding: 3px 9px;
   border-radius: 20px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 .project-card h3 {
   font-family: var(--font-display);
   font-size: 20px;
   font-weight: 500;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   color: var(--ink);
+  line-height: 1.25;
 }
 .project-card p {
   font-size: 13.5px;
@@ -391,24 +438,16 @@ h1 {
   line-height: 1.75;
 }
 
-.project-footer { margin-top: 20px; }
-.btn-download {
-  display: inline-flex;
+.project-footer {
+  margin-top: 18px;
+  display: flex;
   align-items: center;
   gap: 6px;
   font-size: 13px;
   font-weight: 500;
   color: var(--accent);
-  border: 1.5px solid var(--border);
-  padding: 7px 14px;
-  border-radius: 6px;
-  transition: all .2s;
 }
-.btn-download:hover {
-  background: var(--accent-pale);
-  border-color: var(--accent);
-  text-decoration: none;
-}
+.project-footer svg { flex-shrink: 0; }
 
 
 /* ── FOOTER ─────────────────────────────────────── */
@@ -445,7 +484,7 @@ footer a { color: var(--accent); }
   }
   .hero-photo img { width: 180px; height: 220px; margin: 0 auto; }
   .exp-item { grid-template-columns: 1fr; gap: 20px; }
-  .exp-image { width: 100%; height: 160px; }
+  .exp-image { width: 100%; height: 120px; }
   .edu-item { grid-template-columns: 1fr; gap: 16px; }
   .edu-header { flex-direction: column; }
   #navbar ul { gap: 16px; }

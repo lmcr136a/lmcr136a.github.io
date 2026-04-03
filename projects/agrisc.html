@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriSC Benchmark — Evelyn N. Kim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '\\(', right: '\\)', display: false}
+      ]
+    });"></script>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .proj-back {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: rgba(248, 247, 244, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      padding: 0 clamp(24px, 6vw, 80px);
+      z-index: 100;
+    }
+    .proj-back a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      transition: color .2s;
+    }
+    .proj-back a:hover { color: var(--accent); text-decoration: none; }
+
+    .proj-hero {
+      padding: calc(var(--nav-h) + 72px) clamp(24px, 8vw, 120px) 64px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .proj-hero .project-tag { margin-bottom: 20px; }
+    .proj-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 28px;
+    }
+    .proj-desc {
+      font-size: 16px;
+      color: var(--ink-soft);
+      line-height: 1.85;
+      margin-bottom: 28px;
+    }
+    .proj-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background .2s;
+    }
+    .proj-link:hover { background: var(--accent-pale); text-decoration: none; }
+
+    .proj-section {
+      padding: 64px clamp(24px, 8vw, 120px);
+    }
+    .proj-section:nth-child(odd) { background: var(--bg-alt); }
+    .proj-section-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .proj-section-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .proj-section-divider {
+      width: 36px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin-bottom: 40px;
+    }
+
+    /* ── Row: image + text ── */
+    .proj-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 36px;
+    }
+
+    /* Max height 340px — shrinks to image's natural height if smaller */
+    .proj-img {
+      max-height: 400px;
+      width: auto;
+      flex-shrink: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      display: flex;
+    }
+    .proj-img img {
+      max-height: 400px;
+      height: auto;
+      width: auto;
+      display: block;
+    }
+
+    /* Text beside image (default: side by side) */
+    .proj-texts {
+      flex: 1;
+      min-width: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-self: center;
+    }
+
+    /* Stacked: image wide → texts go below, full width */
+    .proj-row.stacked {
+      flex-direction: column;
+    }
+    .proj-row.stacked .proj-img {
+      width: 100%;
+      max-height: 400px;
+      height: auto;
+    }
+    .proj-row.stacked .proj-img img {
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: contain;
+    }
+    .proj-row.stacked .proj-texts {
+      width: 100%;
+    }
+
+    /* ── Full-width text block (no image) ── */
+    .proj-text-full {
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      line-height: 1.85;
+    }
+    .proj-text-full h2 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--ink);
+      margin: 0 0 10px;
+    }
+    .proj-text-full h3 {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      margin: 0 0 6px;
+    }
+    .proj-text-full p { margin: 0 0 10px; }
+    .proj-text-full p:last-child { margin-bottom: 0; }
+    .proj-text-full div + div { margin-top: 1.2rem; }
+
+    /* ── Figure: centered image + full-width caption ── */
+    .proj-figure {
+      margin-bottom: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .proj-figure:last-child { margin-bottom: 0; }
+    .proj-figure-img {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      width: fit-content;
+      max-width: 100%;
+      line-height: 0;
+    }
+    .proj-figure-img img {
+      display: block;
+      max-height: 280px;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+    }
+    .proj-figure-caption {
+      width: 100%;
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      border-left: 2px solid var(--accent);
+      padding-left: 14px;
+    }
+    .proj-figure-caption strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      opacity: .3;
+      background: var(--accent-pale);
+      min-width: 200px;
+    }
+
+    @media (max-width: 640px) {
+      .proj-row, .proj-row.stacked { flex-direction: column; }
+      .proj-img, .proj-row.stacked .proj-img { width: 100% !important; max-height: 400px !important; height: auto !important; }
+      .proj-img img, .proj-row.stacked .proj-img img { width: 100% !important; height: auto !important; max-height: 400px !important; object-fit: contain; }
+      .proj-texts { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="proj-back">
+    <a href="../index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+      Back
+    </a>
+  </div>
+
+  <!-- ── HERO ── -->
+  <div class="proj-hero fade-in">
+    <span class="project-tag">Robotics · Vision</span>
+    <h1 class="proj-title">AgriSC Benchmark</h1>
+    <p class="proj-desc">
+      A semantic consistency benchmark for evaluating Vision-Language Models (VLMs) on agricultural
+      crop-row environments. The benchmark compares five embedding models — CLIP, OpenCLIP, DINOv2,
+      EVA-CLIP, and SigLIP — across three complementary metrics (CSC, SSC, TSC) using paired RGB-D
+      frames collected by a Scout robot platform in real field conditions.
+    </p>
+    <!-- <a href="https://github.com/yourusername/agrisc" class="proj-link" target="_blank" rel="noopener">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub Repository ↗
+    </a> -->
+  </div>
+
+  <!-- ── SECTION 1: Benchmark Design (text only, full width) ── -->
+  <div class="proj-section">
+    <div class="proj-section-inner">
+      <h2 class="proj-section-title fade-in">Benchmark Design</h2>
+      <div class="proj-section-divider fade-in"></div>
+
+      <div class="proj-text-full fade-in">
+        <p>This work proposes a benchmark to evaluate the consistency of semantic embeddings in agricultural environments by isolating three key factors: viewpoint, time, and spatial structure. It defines three tasks—cross-view, temporal, and structural consistency—along with corresponding metrics (CSC, TSC, SSC) to quantify how consistently the same semantic entity is represented under varying observations, enabling controlled analysis of embedding stability.</p>
+
+        <div>
+          <h2>Semantic Consistency Metrics</h2>
+          <p>This benchmark evaluates semantic consistency under three sources of variation: viewpoint, time, and spatial structure. All three metrics share the same form: they compare <em>intra-class similarity</em> (how similar embeddings of the same semantic target are) against <em>inter-class similarity</em> (how similar crop and non-crop representations are).</p>
+        </div>
+
+        <div>
+          <h3>1. Cross-view Semantic Consistency (CSC)</h3>
+          <p>CSC measures whether the same object keeps a similar embedding when observed from different viewpoints.</p>
+          <p>$$\text{CSC} = \frac{\text{SC}_\text{intra}(\mathcal{P}_\text{CSC})}{\text{SC}_\text{inter}}, \quad \mathcal{P}_\text{CSC} = \{(e_i, e_j) \mid o_i = o_j,\ v_i \neq v_j\}$$</p>
+          <p>Here, \(e_i\) and \(e_j\) are embeddings of the same object observed from different viewing directions.</p>
+        </div>
+
+        <div>
+          <h3>2. Temporal Semantic Consistency (TSC)</h3>
+          <p>TSC measures whether the same object keeps a similar embedding when observed at different times.</p>
+          <p>$$\text{TSC} = \frac{\text{SC}_\text{intra}(\mathcal{P}_\text{TSC})}{\text{SC}_\text{inter}}, \quad \mathcal{P}_\text{TSC} = \{(e_i, e_j) \mid o_i = o_j,\ t_i \neq t_j\}$$</p>
+          <p>This captures semantic stability across repeated observations under changing illumination or time.</p>
+        </div>
+
+        <div>
+          <h3>3. Spatial Semantic Consistency (SSC)</h3>
+          <p>SSC measures whether crops belonging to the same structural group, such as the same row, are represented consistently in embedding space.</p>
+          <p>$$\text{SSC} = \frac{\text{SC}_\text{intra}(\mathcal{P}_\text{SSC})}{\text{SC}_\text{inter}}, \quad \mathcal{P}_\text{SSC} = \{(e_i, e_j) \mid g_i = g_j\}$$</p>
+          <p>Here, \(g_i\) and \(g_j\) indicate the same spatial group.</p>
+        </div>
+
+        <div>
+          <h3>Shared Definition</h3>
+          <p>In all cases, the benchmark uses cosine similarity to compute semantic consistency:</p>
+          <p>$$\text{SC} = \frac{\text{SC}_\text{intra}}{\text{SC}_\text{inter}}$$</p>
+          <p>A higher score means that semantically related observations stay close to each other while remaining separable from unrelated regions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION: Result Summary ── -->
+  <div class="proj-section">
+    <div class="proj-section-inner">
+      <h2 class="proj-section-title fade-in">Result Summary</h2>
+      <div class="proj-section-divider fade-in"></div>
+
+      <div class="proj-figure fade-in">
+        <div class="proj-figure-img">
+          <img src="../images/projects/agrisc_result1.png" alt="Result figure 1"
+               onerror="this.parentElement.style.cssText='width:320px;height:180px;background:var(--accent-pale);display:flex;align-items:center;justify-content:center;'; this.parentElement.innerHTML='<span style=\'font-size:13px;color:var(--ink-light)\'>Image placeholder</span>'" />
+        </div>
+        <p class="proj-figure-caption">
+          <strong>Embedding Instability Across Viewpoint Changes:</strong> 
+          Semantic consistency decreases as the difference in observation angle increases. When the same object is observed from different viewpoints, the resulting embeddings become less similar, indicating that semantic representations are not invariant to viewing direction. This effect is relatively small for CLIP, which maintains a near-zero slope, but becomes much more pronounced for DINOv2, where consistency drops significantly as the angle difference grows. The plot shows how semantic consistency (CSC) changes as the observation angle difference increases. The x-axis represents the angular difference between two observations of the same object, and the y-axis represents the consistency score. CLIP maintains a relatively stable behavior with a near-zero slope (−0.00229), indicating that its embeddings remain consistent across viewpoints. In contrast, DINOv2 exhibits a much steeper negative slope (−0.02345), meaning that its embeddings change significantly as the viewing angle varies. Although both models observe the same physical crops, the resulting embeddings diverge as viewpoint differences increase. This demonstrates that semantic representations are not invariant to viewpoint changes, and such instability can directly degrade the reliability of semantic maps.
+        </p>
+      </div>
+
+      <div class="proj-figure fade-in">
+        <div class="proj-figure-img">
+          <img src="../images/projects/agrisc_result2.png" alt="Result figure 2"
+               onerror="this.parentElement.style.cssText='width:320px;height:180px;background:var(--accent-pale);display:flex;align-items:center;justify-content:center;'; this.parentElement.innerHTML='<span style=\'font-size:13px;color:var(--ink-light)\'>Image placeholder</span>'" />
+        </div>
+        <p class="proj-figure-caption">
+          <strong>Spatial Instability of Semantic Embeddings: </strong> Semantic consistency is not uniform even within structurally identical regions. When examining embedding variance across the map, some areas produce stable and consistent representations, while others show large variability despite corresponding to the same crop category. The plot is a top-down visualization of embedding variance across crop regions. Each voxel in the map is colored based on the variance of embeddings assigned to it, where red indicates high variance (low consistency) and blue indicates low variance (high consistency). While all crops belong to the same semantic category, the figure shows that some regions produce highly consistent embeddings, whereas others exhibit large variability. Notably, this inconsistency appears even within the same crop row, which should ideally share a uniform semantic representation. Comparing models, CLIP produces more consistent embeddings overall, while DINOv2 shows higher variance across many regions. This result highlights that semantic inconsistency is not only caused by viewpoint changes but also emerges spatially within repetitive structures, leading to fragmented semantic representations in the final map.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 2: Dataset ── -->
+  <div class="proj-section">
+    <div class="proj-section-inner">
+      <h2 class="proj-section-title fade-in">Dataset</h2>
+      <div class="proj-section-divider fade-in"></div>
+
+      <div class="proj-img fade-in" style="width:auto; max-height:400px; display:flex; background:var(--white); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; margin-bottom:28px;">
+        <img src="../images/projects/agrisc_s2_img1.png" alt="Dataset"
+             style="max-height:400px; height:auto; width:auto; max-width:100%; display:block;"
+             onerror="this.parentElement.innerHTML='<div style=\'padding:40px;color:var(--ink-light);font-size:13px;\'>Image placeholder</div>'" />
+      </div>
+
+      <div class="proj-text-full fade-in">
+        <p>A large-scale multimodal agricultural dataset is constructed in a confined and highly repetitive farm environment where semantic consistency is challenging. The dataset includes RGB-D, LiDAR, IMU, GPS, and camera poses, covering approximately 2.5 km of trajectories, and is built using a pose-aware pipeline combining GPS and LiDAR-inertial SLAM to provide accurate spatial alignment for systematic evaluation.</p>
+        <p><!-- Paragraph 2 --></p> 
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <p>Evelyn · UCLA Ph.D. Student · <a href="mailto:lmcr136a@g.ucla.edu">lmcr136a@g.ucla.edu</a></p>
+    <p class="footer-copy">© <span id="year"></span> All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    fadeEls.forEach(el => observer.observe(el));
+
+    function applyLayout(imgEl, rowEl) {
+      const imgWidth = imgEl.getBoundingClientRect().width;
+      const vw = window.innerWidth;
+      rowEl.classList.toggle('stacked', imgWidth >= vw * 0.5);
+    }
+
+    const pairs = [];
+
+    pairs.forEach(({ img, row }) => {
+      const imgTag = img.querySelector('img');
+      if (!imgTag) return;
+      if (imgTag.complete) applyLayout(img, row);
+      else imgTag.addEventListener('load', () => applyLayout(img, row));
+    });
+
+    window.addEventListener('resize', () => {
+      pairs.forEach(({ img, row }) => applyLayout(img, row));
+    });
+  </script>
+</body>
+</html>
