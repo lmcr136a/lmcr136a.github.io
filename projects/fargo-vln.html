@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fargo Farm Physical AI Assistant — Evelyn N. Kim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .proj-back {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: rgba(248, 247, 244, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      padding: 0 clamp(24px, 6vw, 80px);
+      z-index: 100;
+    }
+    .proj-back a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      transition: color .2s;
+    }
+    .proj-back a:hover { color: var(--accent); text-decoration: none; }
+
+    .proj-hero-video {
+      padding-top: var(--nav-h);
+      display: flex;
+      justify-content: center;
+      background: var(--ink);
+    }
+    .proj-hero-video video {
+      width: 100%;
+      max-height: 560px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .proj-hero {
+      padding: 56px clamp(24px, 8vw, 120px) 64px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .proj-hero .project-tag { margin-bottom: 20px; }
+    .proj-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 28px;
+    }
+    .proj-desc {
+      font-size: 16px;
+      color: var(--ink-soft);
+      line-height: 1.85;
+      margin-bottom: 28px;
+    }
+    .proj-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background .2s;
+    }
+    .proj-link:hover { background: var(--accent-pale); text-decoration: none; }
+
+    .proj-section {
+      padding: 64px clamp(24px, 8vw, 120px);
+    }
+    .proj-section:nth-child(odd) { background: var(--bg-alt); }
+    .proj-section-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .proj-section-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .proj-section-divider {
+      width: 36px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin-bottom: 40px;
+    }
+
+    /* ── Row: image + text ── */
+    .proj-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 36px;
+    }
+
+    .proj-img {
+      max-height: 400px;
+      width: auto;
+      flex-shrink: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      display: flex;
+    }
+    .proj-img img {
+      max-height: 400px;
+      height: auto;
+      width: auto;
+      display: block;
+    }
+
+    .proj-texts {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .proj-row.stacked {
+      flex-direction: column;
+    }
+    .proj-row.stacked .proj-img {
+      width: 100%;
+      max-height: 400px;
+      height: auto;
+    }
+    .proj-row.stacked .proj-img img {
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: contain;
+    }
+    .proj-row.stacked .proj-texts {
+      width: 100%;
+    }
+
+    .proj-text-full {
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      line-height: 1.85;
+    }
+    .proj-text-full h2 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--ink);
+      margin: 0 0 10px;
+    }
+    .proj-text-full h3 {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      margin: 0 0 6px;
+    }
+    .proj-text-full p { margin: 0 0 10px; }
+    .proj-text-full p:last-child { margin-bottom: 0; }
+    .proj-text-full ul {
+      margin: 0 0 10px;
+      padding-left: 18px;
+    }
+    .proj-text-full li { margin-bottom: 6px; }
+
+    @media (max-width: 640px) {
+      .proj-row, .proj-row.stacked { flex-direction: column; }
+      .proj-img, .proj-row.stacked .proj-img { width: 100% !important; max-height: 320px !important; height: auto !important; }
+      .proj-img img, .proj-row.stacked .proj-img img { width: 100% !important; height: auto !important; max-height: 320px !important; object-fit: contain; }
+      .proj-hero-video video { max-height: 320px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="proj-back">
+    <a href="../index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+      Back
+    </a>
+  </div>
+
+  <!-- ── HERO VIDEO ── -->
+  <div class="proj-hero-video">
+    <video autoplay muted loop playsinline controls>
+      <source src="../videos/fargo.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- ── HERO ── -->
+  <div class="proj-hero fade-in">
+    <span class="project-tag">Physical AI · Vision-Language Navigation · Robotics</span>
+    <h1 class="proj-title">Farm-Focused Physical AI Assistant in Fargo, ND</h1>
+
+    <p class="proj-desc">
+      A field-deployed robotic assistant for large-scale row-crop farms, built around a Vision-Language Navigation (VLN) stack that lets the robot follow natural-language instructions while traversing kilometer-scale fields. The platform fuses four RGBD stereo cameras, LiDAR, and RTK GNSS for robust localization and obstacle avoidance under repetitive crop structures and partial GNSS degradation, with an onboard NVIDIA Jetson handling perception and navigation in real time. A Starlink uplink at the home station provides internet connectivity, while a dedicated radio link keeps the robot in continuous contact with the operator for live status monitoring and remote intervention.
+    </p>
+  </div>
+
+  <!-- ── HARDWARE PLATFORM ── -->
+  <div class="proj-section">
+    <div class="proj-section-inner">
+      <h2 class="proj-section-title fade-in">Hardware Platform</h2>
+      <div class="proj-section-divider fade-in"></div>
+
+      <div class="proj-row fade-in">
+        <div class="proj-img">
+          <img src="../images/projects/fargo2.jpg" alt="Close-up of the farm robot's sensor suite" />
+        </div>
+        <div class="proj-texts">
+          <div class="proj-text-full">
+            <p>The robot is equipped with a sensor and compute suite designed for all-day autonomous operation in unstructured outdoor farmland:</p>
+            <ul>
+              <li><strong>4 × RGBD stereo cameras</strong> arranged for near-360° coverage, used for crop-row perception and close-range obstacle detection</li>
+              <li><strong>LiDAR</strong> for long-range obstacle detection and large-scale SLAM</li>
+              <li><strong>RTK GNSS GPS</strong> for centimeter-level localization, with sensor fusion to bridge GNSS dropouts under canopy</li>
+              <li><strong>Radio link</strong> for continuous telemetry and remote monitoring/intervention from the home station</li>
+              <li><strong>Onboard NVIDIA Jetson</strong> running perception, SLAM, and VLN inference in real time at the edge</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FARM DEPLOYMENT ── -->
+  <div class="proj-section">
+    <div class="proj-section-inner">
+      <h2 class="proj-section-title fade-in">Farm Deployment &amp; Connectivity</h2>
+      <div class="proj-section-divider fade-in"></div>
+
+      <div class="proj-row fade-in">
+        <div class="proj-img">
+          <img src="../images/projects/fargo1.jpg" alt="Aerial view of the Fargo, ND farm deployment site" />
+        </div>
+        <div class="proj-texts">
+          <div class="proj-text-full">
+            <p>Deployed across open row-crop fields in Fargo, ND, the system pairs onboard autonomy with a lightweight field infrastructure: a <strong>Starlink</strong> terminal at the home station supplies internet connectivity for remote access and data offload, while the dedicated <strong>radio</strong> link gives the operator real-time visibility into robot state and location even at the far edges of the field, independent of cellular coverage.</p>
+            <p>On top of this hardware stack, the robot's <strong>Vision-Language Navigation</strong> module grounds natural-language instructions (e.g. "go to the irrigation pivot at the north end of row 12") in the live RGBD/LiDAR map, enabling instruction-following navigation without hand-authored waypoints for every task.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <p>Evelyn · UCLA Ph.D. Student · <a href="mailto:lmcr136a@g.ucla.edu">lmcr136a@g.ucla.edu</a></p>
+    <p class="footer-copy">© <span id="year"></span> All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    fadeEls.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
