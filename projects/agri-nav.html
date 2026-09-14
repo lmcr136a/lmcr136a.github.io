@@ -43,7 +43,7 @@
 
     .proj-hero {
       padding: calc(var(--nav-h) + 72px) clamp(24px, 8vw, 120px) 64px;
-      max-width: 860px;
+      max-width: calc(1462px + 2 * clamp(24px, 8vw, 120px));
       margin: 0 auto;
     }
     .proj-hero .project-tag { margin-bottom: 20px; }
@@ -80,7 +80,7 @@
     }
     .proj-section:nth-child(odd) { background: var(--bg-alt); }
     .proj-section-inner {
-      max-width: 860px;
+      max-width: 1462px;
       margin: 0 auto;
     }
     .proj-section-title {
@@ -107,7 +107,7 @@
 
     /* Max height 340px — shrinks to image's natural height if smaller */
     .proj-img {
-      max-height: 400px;
+      max-height: 680px;
       width: auto;
       flex-shrink: 0;
       background: var(--white);
@@ -117,7 +117,7 @@
       display: flex;
     }
     .proj-img img {
-      max-height: 400px;
+      max-height: 680px;
       height: auto;
       width: auto;
       display: block;
@@ -139,13 +139,13 @@
     }
     .proj-row.stacked .proj-img {
       width: 100%;
-      max-height: 400px;
+      max-height: 680px;
       height: auto;
     }
     .proj-row.stacked .proj-img img {
       width: 100%;
       height: auto;
-      max-height: 400px;
+      max-height: 680px;
       object-fit: contain;
     }
     .proj-row.stacked .proj-texts {
@@ -156,7 +156,7 @@
     .proj-wrap::after { content: ""; display: table; clear: both; }
     .proj-wrap .proj-img-float {
       float: left;
-      width: min(46%, 420px);
+      width: min(46%, 714px);
       margin: 6px 32px 12px 0;
       background: var(--white);
       border: 1px solid var(--border);
@@ -221,7 +221,7 @@
       margin-bottom: 28px;
     }
     .proj-img-solo img {
-      max-height: 420px;
+      max-height: 714px;
       width: auto;
       max-width: 100%;
       height: auto;
@@ -311,7 +311,7 @@
     }
     .proj-figure-img img {
       display: block;
-      max-height: 280px;
+      max-height: 476px;
       max-width: 100%;
       width: auto;
       height: auto;
@@ -357,7 +357,7 @@
 
   <!-- ── HERO ── -->
   <div class="proj-hero fade-in">
-    <span class="project-tag">Physical AI · Vision-Language Navigation · SLAM · Semantic Mapping</span>
+    <span class="project-tag">Physical AI · VLN · SLAM</span>
     <h1 class="proj-title">Autonomous Navigation System in Agricultural Environments</h1>
 
     <div class="proj-hero-pair">
@@ -435,17 +435,17 @@
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:40px;">
             <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; line-height:0; display:flex; justify-content:center; align-items:center;">
               <img src="../images/projects/slam_map1.png" alt="SLAM map 1"
-                   style="max-height:280px; width:100%; height:auto; object-fit:contain; display:block;" />
+                   style="max-height:476px; width:100%; height:auto; object-fit:contain; display:block;" />
             </div>
             <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; line-height:0; display:flex; justify-content:center; align-items:center;">
               <img src="../images/projects/slam_map2.png" alt="SLAM map 2"
-                   style="max-height:280px; width:100%; height:auto; object-fit:contain; display:block;" />
+                   style="max-height:476px; width:100%; height:auto; object-fit:contain; display:block;" />
             </div>
           </div>
 
           <div style="display:flex; justify-content:center; margin-bottom:40px;">
             <video controls autoplay muted loop playsinline
-                   style="max-height:500px; max-width:100%; display:block; border-radius:var(--r); border:1px solid var(--border);">
+                   style="max-height:850px; max-width:100%; display:block; border-radius:var(--r); border:1px solid var(--border);">
               <source src="../videos/slam_map.mp4" type="video/mp4" />
             </video>
           </div>
@@ -454,7 +454,7 @@
           <div style="display:flex; justify-content:center;">
             <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; line-height:0;">
               <img src="../images/projects/slam_farm_gt.png" alt="Ground truth aerial farm map"
-                   style="max-height:400px; width:auto; height:auto; max-width:100%; display:block;" />
+                   style="max-height:680px; width:auto; height:auto; max-width:100%; display:block;" />
             </div>
           </div>
 
@@ -540,9 +540,9 @@
 
       <div class="proj-subsection">
         <h3 class="proj-subsection-title fade-in">Dataset</h3>
-        <div class="proj-img fade-in" style="width:auto; max-height:400px; display:flex; background:var(--white); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; margin-bottom:28px;">
+        <div class="proj-img fade-in" style="width:auto; max-height:680px; display:flex; background:var(--white); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; margin-bottom:28px;">
           <img src="../images/projects/agrisc_s2_img1.png" alt="Dataset"
-               style="max-height:400px; height:auto; width:auto; max-width:100%; display:block;"
+               style="max-height:680px; height:auto; width:auto; max-width:100%; display:block;"
                onerror="this.parentElement.innerHTML='<div style=\'padding:40px;color:var(--ink-light);font-size:13px;\'>Image placeholder</div>'" />
         </div>
 
