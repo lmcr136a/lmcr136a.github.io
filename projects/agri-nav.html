@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AgriSC Benchmark — Evelyn N. Kim</title>
+  <title>Autonomous Navigation System in Agricultural Environments — Evelyn N. Kim</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
@@ -152,6 +152,108 @@
       width: 100%;
     }
 
+    /* ── Wrap: floated image, text flows around and below it ── */
+    .proj-wrap::after { content: ""; display: table; clear: both; }
+    .proj-wrap .proj-img-float {
+      float: left;
+      width: min(46%, 420px);
+      margin: 6px 32px 12px 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      line-height: 0;
+    }
+    .proj-wrap .proj-img-float img { width: 100%; height: auto; display: block; }
+    @media (max-width: 640px) {
+      .proj-wrap .proj-img-float { float: none; width: 100%; margin: 0 0 20px; }
+    }
+
+    /* ── Hero: two platform photos, equal size ── */
+    .proj-hero-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .proj-hero-pair figure { margin: 0; min-width: 0; }
+    .proj-hero-pair-img {
+      aspect-ratio: 4 / 3;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .proj-hero-pair-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .proj-hero-pair figcaption {
+      margin-top: 10px;
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      text-align: center;
+    }
+
+    /* ── Subsections inside a section ── */
+    .proj-subsection + .proj-subsection {
+      margin-top: 56px;
+      padding-top: 48px;
+      border-top: 1px solid var(--border);
+    }
+    .proj-subsection-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    /* ── Standalone section image ── */
+    .proj-img-solo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+    .proj-img-solo img {
+      max-height: 420px;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+    }
+
+    /* ── Video row: videos share one height, widths follow aspect ratio ── */
+    .proj-video-row {
+      clear: both;
+      display: flex;
+      gap: 16px;
+      padding-top: 20px;
+    }
+    .proj-video-row video {
+      flex: var(--grow) 1 0;
+      min-width: 0;
+      aspect-ratio: var(--ar);
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      background: #000;
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+    }
+    @media (max-width: 640px) {
+      .proj-video-row { flex-direction: column; }
+      .proj-video-row video { flex: none; }
+    }
+
     /* ── Full-width text block (no image) ── */
     .proj-text-full {
       font-size: 14.5px;
@@ -160,7 +262,7 @@
     }
     .proj-text-full h2 {
       font-family: var(--font-display);
-      font-size: 20px;
+      font-size: 17px;
       font-weight: 500;
       color: var(--ink);
       margin: 0 0 10px;
@@ -174,6 +276,20 @@
     .proj-text-full p { margin: 0 0 10px; }
     .proj-text-full p:last-child { margin-bottom: 0; }
     .proj-text-full div + div { margin-top: 1.2rem; }
+    .proj-text-full ul {
+      margin: 0 0 10px;
+      padding-left: 18px;
+    }
+    .proj-text-full li { margin-bottom: 6px; }
+    .proj-subproject-tag {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
 
     /* ── Figure: centered image + full-width caption ── */
     .proj-figure {
@@ -241,59 +357,203 @@
 
   <!-- ── HERO ── -->
   <div class="proj-hero fade-in">
-    <span class="project-tag">Robotics · SLAM · VLM · Open-Vocabulary Semantic Mapping</span>
+    <span class="project-tag">Physical AI · Vision-Language Navigation · SLAM · Semantic Mapping</span>
     <h1 class="proj-title">Autonomous Navigation System in Agricultural Environments</h1>
 
-    <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; line-height:0;">
-        <img src="../images/projects/robot1.jpg" alt="SLAM map 1"
-            style="max-height:2500px; height:auto; width:auto; max-width:100%; display:block;"
-            onerror="this.parentElement.innerHTML='<div style=\'padding:40px;color:var(--ink-light);font-size:13px;\'>Image placeholder</div>'" />
+    <div class="proj-hero-pair">
+      <figure>
+        <div class="proj-hero-pair-img">
+          <img src="../images/projects/fargo0.jpg" alt="Scout mini robot in Fargo, ND"
+               onerror="this.parentElement.innerHTML='<span style=\'font-size:13px;color:var(--ink-light)\'>Image placeholder</span>'" />
+        </div>
+        <figcaption>Scout mini in Fargo, ND</figcaption>
+      </figure>
+      <figure>
+        <div class="proj-hero-pair-img">
+          <img src="../images/projects/robot1.png" alt="Scout 2.0 robot in Oxnard, CA"
+               onerror="this.parentElement.innerHTML='<span style=\'font-size:13px;color:var(--ink-light)\'>Image placeholder</span>'" />
+        </div>
+        <figcaption>Scout 2.0 in Oxnard, CA</figcaption>
+      </figure>
     </div>
-    
+
     <p class="proj-desc">
-      An autonomous mobile robotic system for large-scale agricultural data collection and mapping, built with multimodal sensing including RGB, depth, LiDAR, and GPS. The system integrates SLAM and open-vocabulary semantic mapping to construct kilometer-scale, queryable 3D maps in real-world farm environments. It is deployed on real robotic platforms across farms in Fargo, ND and Oxnard, CA, addressing challenges such as GNSS degradation, highly repetitive crop structures, and long-horizon traversal.
+      Deployed an autonomous multi-robot data collection pipeline at NDSU's flax farm (Fargo, ND) and a Driscoll's berry farm (Oxnard, CA).
     </p>
     <!-- <a href="https://github.com/yourusername/agrisc" class="proj-link" target="_blank" rel="noopener">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
       GitHub Repository ↗
     </a> -->
   </div>
-<div class="proj-section">
+  <!-- ── FARGO: FARM DEPLOYMENT & AUTONOMOUS DATASET COLLECTION ── -->
+  <div class="proj-section">
     <div class="proj-section-inner">
-      <h2 class="proj-section-title fade-in">Large Scale SLAM (GLIM)</h2>
+      <h2 class="proj-section-title fade-in">FARGO: Long-term Farm Deployment &amp; Autonomous Dataset Collection</h2>
       <div class="proj-section-divider fade-in"></div>
-      <div class="proj-text-full fade-in">
 
-        <p style="margin-bottom:16px;">Created Map Example:</p>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:40px;">
-          <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; line-height:0; display:flex; justify-content:center; align-items:center;">
-            <img src="../images/projects/slam_map1.png" alt="SLAM map 1"
-                 style="max-height:280px; width:100%; height:auto; object-fit:contain; display:block;" />
-          </div>
-          <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; line-height:0; display:flex; justify-content:center; align-items:center;">
-            <img src="../images/projects/slam_map2.png" alt="SLAM map 2"
-                 style="max-height:280px; width:100%; height:auto; object-fit:contain; display:block;" />
-          </div>
+      <div class="proj-img-solo fade-in">
+        <img src="../images/projects/fargo1.jpg" alt="Aerial view of the Fargo, ND farm deployment site" />
+      </div>
+
+      <div class="proj-wrap proj-text-full fade-in">
+        <div class="proj-img-float">
+          <img src="../videos/fargo3.gif" alt="Robot operating in the Fargo, ND field" />
         </div>
 
-        <div style="display:flex; justify-content:center; margin-bottom:40px;">
-          <video controls autoplay muted loop playsinline
-                 style="max-height:500px; max-width:100%; display:block; border-radius:var(--r); border:1px solid var(--border);">
-            <source src="../videos/slam_map.mp4" type="video/mp4" />
+            <p>Deployed across open row-crop fields in Fargo, ND, the system pairs onboard autonomy with a lightweight field infrastructure: a <strong>Starlink</strong> terminal at the home station supplies internet connectivity for remote access and data offload, while the dedicated <strong>radio</strong> link gives the operator real-time visibility into robot state and location even at the far edges of the field, independent of cellular coverage.</p>
+            <p>On top of this hardware stack, the robot's <strong>Vision-Language Navigation</strong> module grounds natural-language instructions (e.g. "go to the irrigation pivot at the north end of row 12") in the live RGBD/LiDAR map, enabling instruction-following navigation without hand-authored waypoints for every task.</p>
+            <p>The robot is equipped with a sensor and compute suite designed for all-day autonomous operation in unstructured outdoor farmland:</p>
+            <ul>
+              <li><strong>4 × RGBD stereo cameras</strong> arranged for near-360° coverage, used for crop-row perception and close-range obstacle detection</li>
+              <li><strong>LiDAR</strong> for long-range obstacle detection and large-scale SLAM</li>
+              <li><strong>RTK GNSS GPS</strong> for centimeter-level localization, with sensor fusion to bridge GNSS dropouts under canopy</li>
+              <li><strong>Radio link</strong> for continuous telemetry and remote monitoring/intervention from the home station</li>
+              <li><strong>Onboard NVIDIA Jetson</strong> running perception, SLAM, and VLN inference in real time at the edge</li>
+            </ul>
+        <div class="proj-video-row">
+          <video style="--ar: 16 / 9; --grow: 1.7778;" autoplay muted loop playsinline controls>
+            <source src="../videos/fargo1.mp4" type="video/mp4" />
+          </video>
+          <video style="--ar: 8 / 9; --grow: 0.8889;" autoplay muted loop playsinline controls>
+            <source src="../videos/fargo2.mp4" type="video/mp4" />
           </video>
         </div>
-
-        <p style="margin-bottom:16px;">Ground Truth Map (Aerial):</p>
-        <div style="display:flex; justify-content:center;">
-          <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; line-height:0;">
-            <img src="../images/projects/slam_farm_gt.png" alt="Ground truth aerial farm map"
-                 style="max-height:400px; width:auto; height:auto; max-width:100%; display:block;" />
-          </div>
-        </div>
-
       </div>
     </div>
   </div>
+
+  <!-- ── OXNARD: BENCHMARK & DATASET ── -->
+  <div class="proj-section">
+    <div class="proj-section-inner">
+      <h2 class="proj-section-title fade-in">OXNARD: Benchmark &amp; Dataset</h2>
+      <div class="proj-section-divider fade-in"></div>
+
+      <div class="proj-subsection">
+        <h3 class="proj-subsection-title fade-in">Large Scale SLAM Example</h3>
+        <div class="proj-text-full fade-in">
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:40px;">
+            <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; line-height:0; display:flex; justify-content:center; align-items:center;">
+              <img src="../images/projects/slam_map1.png" alt="SLAM map 1"
+                   style="max-height:280px; width:100%; height:auto; object-fit:contain; display:block;" />
+            </div>
+            <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; line-height:0; display:flex; justify-content:center; align-items:center;">
+              <img src="../images/projects/slam_map2.png" alt="SLAM map 2"
+                   style="max-height:280px; width:100%; height:auto; object-fit:contain; display:block;" />
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:center; margin-bottom:40px;">
+            <video controls autoplay muted loop playsinline
+                   style="max-height:500px; max-width:100%; display:block; border-radius:var(--r); border:1px solid var(--border);">
+              <source src="../videos/slam_map.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          <p style="margin-bottom:16px;">Ground Truth Map (Aerial):</p>
+          <div style="display:flex; justify-content:center;">
+            <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; line-height:0;">
+              <img src="../images/projects/slam_farm_gt.png" alt="Ground truth aerial farm map"
+                   style="max-height:400px; width:auto; height:auto; max-width:100%; display:block;" />
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="proj-subsection">
+        <span class="proj-subproject-tag fade-in">Robotics · Vision</span>
+        <h3 class="proj-subsection-title fade-in">AgriSC Benchmark</h3>
+        <div class="proj-text-full fade-in">
+          <p>
+            A semantic consistency benchmark for evaluating Vision-Language Models (VLMs) on agricultural
+            crop-row environments. The benchmark compares five embedding models — CLIP, OpenCLIP, DINOv2,
+            EVA-CLIP, and SigLIP — across three complementary metrics (CSC, SSC, TSC) using paired RGB-D
+            frames collected by a Scout robot platform in real field conditions.
+          </p>
+        </div>
+      </div>
+
+      <div class="proj-subsection">
+        <h3 class="proj-subsection-title fade-in">Benchmark Design</h3>
+        <div class="proj-text-full fade-in">
+          <p>This work proposes a benchmark to evaluate the consistency of semantic embeddings in agricultural environments by isolating three key factors: viewpoint, time, and spatial structure. It defines three tasks—cross-view, temporal, and structural consistency—along with corresponding metrics (CSC, TSC, SSC) to quantify how consistently the same semantic entity is represented under varying observations, enabling controlled analysis of embedding stability.</p>
+
+          <div>
+            <h2>Semantic Consistency Metrics</h2>
+            <p>This benchmark evaluates semantic consistency under three sources of variation: viewpoint, time, and spatial structure. All three metrics share the same form: they compare <em>intra-class similarity</em> (how similar embeddings of the same semantic target are) against <em>inter-class similarity</em> (how similar crop and non-crop representations are).</p>
+          </div>
+
+          <div>
+            <h3>1. Cross-view Semantic Consistency (CSC)</h3>
+            <p>CSC measures whether the same object keeps a similar embedding when observed from different viewpoints.</p>
+            <p>$$\text{CSC} = \frac{\text{SC}_\text{intra}(\mathcal{P}_\text{CSC})}{\text{SC}_\text{inter}}, \quad \mathcal{P}_\text{CSC} = \{(e_i, e_j) \mid o_i = o_j,\ v_i \neq v_j\}$$</p>
+            <p>Here, \(e_i\) and \(e_j\) are embeddings of the same object observed from different viewing directions.</p>
+          </div>
+
+          <div>
+            <h3>2. Temporal Semantic Consistency (TSC)</h3>
+            <p>TSC measures whether the same object keeps a similar embedding when observed at different times.</p>
+            <p>$$\text{TSC} = \frac{\text{SC}_\text{intra}(\mathcal{P}_\text{TSC})}{\text{SC}_\text{inter}}, \quad \mathcal{P}_\text{TSC} = \{(e_i, e_j) \mid o_i = o_j,\ t_i \neq t_j\}$$</p>
+            <p>This captures semantic stability across repeated observations under changing illumination or time.</p>
+          </div>
+
+          <div>
+            <h3>3. Spatial Semantic Consistency (SSC)</h3>
+            <p>SSC measures whether crops belonging to the same structural group, such as the same row, are represented consistently in embedding space.</p>
+            <p>$$\text{SSC} = \frac{\text{SC}_\text{intra}(\mathcal{P}_\text{SSC})}{\text{SC}_\text{inter}}, \quad \mathcal{P}_\text{SSC} = \{(e_i, e_j) \mid g_i = g_j\}$$</p>
+            <p>Here, \(g_i\) and \(g_j\) indicate the same spatial group.</p>
+          </div>
+
+          <div>
+            <h3>Shared Definition</h3>
+            <p>In all cases, the benchmark uses cosine similarity to compute semantic consistency:</p>
+            <p>$$\text{SC} = \frac{\text{SC}_\text{intra}}{\text{SC}_\text{inter}}$$</p>
+            <p>A higher score means that semantically related observations stay close to each other while remaining separable from unrelated regions.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-subsection">
+        <h3 class="proj-subsection-title fade-in">Result Summary</h3>
+        <div class="proj-figure fade-in">
+          <div class="proj-figure-img">
+            <img src="../images/projects/agrisc_result1.png" alt="Result figure 1"
+                 onerror="this.parentElement.style.cssText='width:320px;height:180px;background:var(--accent-pale);display:flex;align-items:center;justify-content:center;'; this.parentElement.innerHTML='<span style=\'font-size:13px;color:var(--ink-light)\'>Image placeholder</span>'" />
+          </div>
+          <p class="proj-figure-caption">
+            <strong>Embedding Instability Across Viewpoint Changes:</strong> 
+            Semantic consistency decreases as the difference in observation angle increases. When the same object is observed from different viewpoints, the resulting embeddings become less similar, indicating that semantic representations are not invariant to viewing direction. This effect is relatively small for CLIP, which maintains a near-zero slope, but becomes much more pronounced for DINOv2, where consistency drops significantly as the angle difference grows. The plot shows how semantic consistency (CSC) changes as the observation angle difference increases. The x-axis represents the angular difference between two observations of the same object, and the y-axis represents the consistency score. CLIP maintains a relatively stable behavior with a near-zero slope (−0.00229), indicating that its embeddings remain consistent across viewpoints. In contrast, DINOv2 exhibits a much steeper negative slope (−0.02345), meaning that its embeddings change significantly as the viewing angle varies. Although both models observe the same physical crops, the resulting embeddings diverge as viewpoint differences increase. This demonstrates that semantic representations are not invariant to viewpoint changes, and such instability can directly degrade the reliability of semantic maps.
+          </p>
+        </div>
+
+        <div class="proj-figure fade-in">
+          <div class="proj-figure-img">
+            <img src="../images/projects/agrisc_result2.png" alt="Result figure 2"
+                 onerror="this.parentElement.style.cssText='width:320px;height:180px;background:var(--accent-pale);display:flex;align-items:center;justify-content:center;'; this.parentElement.innerHTML='<span style=\'font-size:13px;color:var(--ink-light)\'>Image placeholder</span>'" />
+          </div>
+          <p class="proj-figure-caption">
+            <strong>Spatial Instability of Semantic Embeddings: </strong> Semantic consistency is not uniform even within structurally identical regions. When examining embedding variance across the map, some areas produce stable and consistent representations, while others show large variability despite corresponding to the same crop category. The plot is a top-down visualization of embedding variance across crop regions. Each voxel in the map is colored based on the variance of embeddings assigned to it, where red indicates high variance (low consistency) and blue indicates low variance (high consistency). While all crops belong to the same semantic category, the figure shows that some regions produce highly consistent embeddings, whereas others exhibit large variability. Notably, this inconsistency appears even within the same crop row, which should ideally share a uniform semantic representation. Comparing models, CLIP produces more consistent embeddings overall, while DINOv2 shows higher variance across many regions. This result highlights that semantic inconsistency is not only caused by viewpoint changes but also emerges spatially within repetitive structures, leading to fragmented semantic representations in the final map.
+          </p>
+        </div>
+      </div>
+
+      <div class="proj-subsection">
+        <h3 class="proj-subsection-title fade-in">Dataset</h3>
+        <div class="proj-img fade-in" style="width:auto; max-height:400px; display:flex; background:var(--white); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; margin-bottom:28px;">
+          <img src="../images/projects/agrisc_s2_img1.png" alt="Dataset"
+               style="max-height:400px; height:auto; width:auto; max-width:100%; display:block;"
+               onerror="this.parentElement.innerHTML='<div style=\'padding:40px;color:var(--ink-light);font-size:13px;\'>Image placeholder</div>'" />
+        </div>
+
+        <div class="proj-text-full fade-in">
+          <p>A large-scale multimodal agricultural dataset is constructed in a confined and highly repetitive farm environment where semantic consistency is challenging. The dataset includes RGB-D, LiDAR, IMU, GPS, and camera poses, covering approximately 2.5 km of trajectories, and is built using a pose-aware pipeline combining GPS and LiDAR-inertial SLAM to provide accurate spatial alignment for systematic evaluation.</p>
+          <p><!-- Paragraph 2 --></p> 
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- <div class="proj-section">
     <div class="proj-section-inner">
       <h2 class="proj-section-title fade-in">Semantic Map</h2>

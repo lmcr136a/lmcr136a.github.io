@@ -32,7 +32,8 @@
         <h1>Evelyn Kim<br /><span class="name-light"><!-- Your Last Name --></span></h1>
         <p class="affiliation">
           Department of Computer Science, UCLA<br />
-          Advised by Prof. M. Khalid Jawed &amp; Prof. Wei Wang
+          <a href="https://vail.cs.ucla.edu/" target="_blank" rel="noopener">Vision and Autonomy Intelligence Lab (VAIL)</a><br />
+          Advisor: <a href="https://boleizhou.github.io/" target="_blank" rel="noopener">Prof. Bolei Zhou</a>
         </p>
         <p class="bio">
           I am a first-year Ph.D. student at UCLA, working on Physical AI, VLM, VLA, and Robotics. My research focuses on high-intelligence autonomous navigation in large-scale agricultural environments, integrating SLAM, semantic mapping, and vision-language-models for real-world deployment.
@@ -75,7 +76,8 @@
           </div>
           <p class="edu-degree">Ph.D. in Computer Science</p>
           <p class="edu-details">
-            Advisors: Prof. M. Khalid Jawed &amp; Prof. Wei Wang<br />
+            <a href="https://vail.cs.ucla.edu/" target="_blank" rel="noopener">Vision and Autonomy Intelligence Lab (VAIL)</a><br />
+            Advisor: <a href="https://boleizhou.github.io/" target="_blank" rel="noopener">Prof. Bolei Zhou</a><br />
             Research Area: Robotics, Computer Vision, VLA Models
           </p>
           <span class="edu-date">2025 – Present</span>
@@ -96,7 +98,8 @@
           </div>
           <p class="edu-degree">M.S. in Mechanical Engineering</p>
           <p class="edu-details">
-            Advisors: Prof. M. Khalid Jawed<br />
+            <a href="https://structures.computer/" target="_blank" rel="noopener">Structures-Computer Interaction Lab</a><br />
+            Advisor: <a href="https://samueli.ucla.edu/people/m-khalid-jawed/" target="_blank" rel="noopener">Prof. M. Khalid Jawed</a><br />
             Research Area: Computer Vision, NeRF
           </p>
           <span class="edu-date">2023 – 2024</span>
@@ -200,20 +203,20 @@ generated via network inversion</p>
 
       <div class="projects-grid">
 
-        <!-- Project 1 — Fargo Farm Physical AI Assistant -->
-        <a href="projects/fargo-vln.html" class="project-card fade-in">
+        <!-- Project 1 — COCO VLA -->
+        <a href="projects/coco-vla.html" class="project-card fade-in">
           <div class="project-thumb">
-            <img src="images/projects/fargo1.jpg" alt="Fargo Farm Physical AI Assistant"
-                 onerror="this.parentElement.innerHTML='<div class=\'project-thumb-placeholder\'>🚜</div>'" />
+            <img src="images/projects/coco.png" alt="VLA for Sidewalk Robot (COCO)"
+                 onerror="this.parentElement.innerHTML='<div class=\'project-thumb-placeholder\'>🤖</div>'" />
           </div>
           <div class="project-body">
             <div class="project-top">
-              <span class="project-tag">Physical AI · VLN · Robotics</span>
-              <h3>Farm-Focused Physical AI Assistant in Fargo Farm</h3>
+              <span class="project-tag">Physical AI · VLA · RL</span>
+              <h3>VLA for Sidewalk Robot (COCO)</h3>
               <p>
-                A field-deployed Vision-Language Navigation robot for large-scale row-crop farms,
-                fusing four RGBD stereo cameras, LiDAR, and RTK GNSS with an onboard Jetson for
-                real-time navigation, plus Starlink and radio links for connectivity and remote monitoring.
+                Enabling more intelligent driving for the COCO sidewalk delivery robot with a
+                Vision-Language-Action policy refined by reinforcement learning for crowded
+                urban sidewalks.
               </p>
             </div>
             <div class="project-footer">
@@ -223,43 +226,21 @@ generated via network inversion</p>
           </div>
         </a>
 
-        <!-- Project 2 — AgriSC -->
-        <a href="projects/agrisc.html" class="project-card fade-in delay-1">
-          <div class="project-thumb">
-            <img src="images/projects/agrisc_thumb.jpg" alt="AgriSC Benchmark"
-                 onerror="this.parentElement.innerHTML='<div class=\'project-thumb-placeholder\'>🌱</div>'" />
-          </div>
-          <div class="project-body">
-            <div class="project-top">
-              <span class="project-tag">Robotics · Vision</span>
-              <h3>AgriSC Benchmark</h3>
-              <p>
-                A semantic consistency benchmark for evaluating Vision-Language Models on agricultural
-                crop-row environments. Compares CLIP, OpenCLIP, DINOv2, EVA-CLIP, and SigLIP across
-                CSC, SSC, and TSC metrics with UMAP visualizations and LaTeX output.
-              </p>
-            </div>
-            <div class="project-footer">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
-              View Project
-            </div>
-          </div>
-        </a>
-
-        <!-- Project 3 — SLAM Navigation -->
-        <a href="projects/agri-nav.html" class="project-card fade-in delay-2">
+        <!-- Project 2 — Agricultural Navigation (Fargo VLN + SLAM + AgriSC) -->
+        <a href="projects/agri-nav.html" class="project-card fade-in delay-1">
           <div class="project-thumb">
             <img src="images/projects/agri_nav_thumb.jpg" alt="Autonomous Navigation System"
                  onerror="this.parentElement.innerHTML='<div class=\'project-thumb-placeholder\'>🗺️</div>'" />
           </div>
           <div class="project-body">
             <div class="project-top">
-              <span class="project-tag">SLAM · Mapping</span>
+              <span class="project-tag">Physical AI · VLN · SLAM · VLM Benchmark</span>
               <h3>Autonomous Navigation System in Agricultural Environments</h3>
               <p>
-                End-to-end LiDAR-inertial SLAM pipeline for large-scale
-                outdoor farm mapping. Generates 2D occupancy grids with obstacle detection from point
-                clouds using local height comparison and morphological operations.
+                Field-deployed Vision-Language Navigation robot for kilometer-scale row-crop farms in
+                Fargo, ND, fusing RGBD cameras, LiDAR, and RTK GNSS with LiDAR-inertial SLAM and
+                Starlink/radio connectivity. Includes the AgriSC Benchmark, evaluating CLIP, OpenCLIP,
+                DINOv2, EVA-CLIP, and SigLIP for semantic consistency across viewpoint, time, and space.
               </p>
             </div>
             <div class="project-footer">
@@ -269,7 +250,7 @@ generated via network inversion</p>
           </div>
         </a>
 
-        <!-- Project 4 — NeRF Viewpoint Selector -->
+        <!-- Project 3 — DiffusionMix -->
         <a href="projects/diff.html" class="project-card fade-in delay-2">
           <div class="project-thumb">
             <img src="images/projects/diff_thumb.png" alt="Self-Supervised Viewpoint Selector"
